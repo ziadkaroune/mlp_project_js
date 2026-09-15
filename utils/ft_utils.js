@@ -1,4 +1,4 @@
-/// normalisation algo
+
 
 const maxf = (dataX) =>Math.max(...dataX);
 const minf = (dataX)=> Math.min(...dataX);
@@ -8,6 +8,7 @@ const normalise = (x, minv, maxv) => {
     return (value === 0 || value === 1) ? value.toFixed(0) : value.toFixed(4);
 };
 
+/// normalisation algo
 function normalisefun(data){
     const maxv = [] ;
     const minv = [];
@@ -26,4 +27,16 @@ function normalisefun(data){
             }
         )
     });
+}
+
+
+
+/// Loss function
+function Loss(y , ypredicted){
+    const epsilon = 1e-15;
+    ypredicted = Math.max(
+        epsilon,
+        Math.min(1 - epsilon, ypredicted)
+    );
+    return - ( y * Math.log(ypredicted) + ((1 - y) * Math.log(1 - ypredicted)));
 }
