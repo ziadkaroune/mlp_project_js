@@ -53,6 +53,5 @@ export default class Matrix {
         }
         return new Matrix(transpose_arr);
     }
- 
 
 }
